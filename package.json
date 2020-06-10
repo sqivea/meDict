@@ -26,6 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "main": "public/main.js",
   "eslintConfig": {
     "extends": "react-app"
   },
