@@ -27,7 +27,7 @@ function createWindow() {
   mainWindow.setMenu(null);
 }
 
-function setupListeners() {
+(() => {
   app.on('ready', createWindow);
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
@@ -39,9 +39,4 @@ function setupListeners() {
       createWindow();
     }
   });
-}
-
-(() => {
-  setupListeners(app);
-  setIcon('public/favicon.ico');
 })();
