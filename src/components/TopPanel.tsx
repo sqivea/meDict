@@ -3,7 +3,7 @@ import React from 'react';
 const TopPanel = () => (
   <div>
     <h3>
-      <span><img src='assets/images/logo.png' alt='' /></span>
+      <img src='logo.png' alt='logo' />
       meDict
     </h3>
   </div>
