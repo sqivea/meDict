@@ -7,10 +7,24 @@ const isDev = require('electron-is-dev');
 
 let mainWindow;
 
+const defaultWidth = 800;
+const defaultHeight = 400;
+
 function createWindow() {
-  mainWindow = new BrowserWindow({width: 900, height: 680});
+  mainWindow = new BrowserWindow({
+    width: defaultWidth,
+    minWidth: defaultWidth,
+    maxWidth: defaultWidth,
+    height: defaultHeight,
+    minHeight: defaultHeight,
+    maxHeight: defaultHeight,
+    fullscreenable: false,
+    resizable: false,
+    center: true
+  });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
   mainWindow.on('closed', () => mainWindow = null);
+  mainWindow.setMenu(null);
 }
 
 app.on('ready', createWindow);
