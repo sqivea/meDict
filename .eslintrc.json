@@ -2,12 +2,32 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": [
     "plugin:react/recommended",
     "airbnb"
   ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": [
+          "./node_modules",
+          "./src"
+        ],
+        "extensions": [
+          ".js",
+          ".ts",
+          ".jsx",
+          ".tsx",
+          ".css",
+          ".sass",
+          ".scss"
+        ]
+      }
+    }
+  },
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -24,5 +44,27 @@
     "react",
     "@typescript-eslint"
   ],
-  "rules": {}
+  "rules": {
+    "react/jsx-filename-extension": [
+      2,
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "dot-notation": "off",
+    "comma-dangle": "off",
+    "import/extensions": "off",
+    "import/no-absolute-path": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-named-as-default": "off"
+  }
 }
