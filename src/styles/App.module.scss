@@ -1,7 +1,9 @@
 .App {
   display: grid;
-  grid-template: 'topPanel topPanel topPanel topPanel topPanel'
-                 'content  content  content  calendar calendar'
+  grid-template:
+    'topPanel topPanel topPanel topPanel topPanel' 1fr
+    'content  content  content  calendar calendar' 6fr;
+  min-height: 100vh;
 }
 
 .App__TopPanel {

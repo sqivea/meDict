@@ -1,6 +1,8 @@
 import React from 'react';
 import cn from 'styles/App.module.scss';
 
+import 'styles/vendor/normalize.scss';
+
 function App() {
   return (
     <div className={cn['App']}>
