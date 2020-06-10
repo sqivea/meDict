@@ -1,0 +1,20 @@
+.App {
+  display: grid;
+  grid-template: 'topPanel topPanel topPanel topPanel topPanel'
+                 'content  content  content  calendar calendar'
+}
+
+.App__TopPanel {
+  grid-area: topPanel;
+  border: solid 2px;
+}
+
+.App__Content {
+  grid-area: content;
+  border: solid 2px;
+}
+
+.App__CalendarWrapper {
+  grid-area: calendar;
+  border: solid 2px;
+}
