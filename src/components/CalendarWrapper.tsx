@@ -2,7 +2,7 @@ import React from 'react';
 
 const CalendarWrapper = () => (
   <div className='MainWrapper'>
-    <p>Claendar</p>
+    <p>Calendar</p>
   </div>
 );
 

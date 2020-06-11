@@ -1,5 +1,6 @@
 import React from 'react';
 import TopPanel from 'components/TopPanel';
+import CalendarWrapper from 'components/CalendarWrapper';
 import cn from 'styles/App.module.scss';
 
 import 'styles/vendor/normalize.scss';
@@ -11,7 +12,9 @@ function App() {
         <TopPanel />
       </header>
       <main className={cn['App__Content']}>Content</main>
-      <aside className={cn['App__CalendarWrapper']}>Calendar wrapper</aside>
+      <aside className={cn['App__CalendarWrapper']}>
+        <CalendarWrapper />
+      </aside>
     </div>
   );
 }
