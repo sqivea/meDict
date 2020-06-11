@@ -17,6 +17,7 @@
 .MainContainer__Logo {
   width: 64px;
   height: 64px;
+  filter: drop-shadow(0 0 $size-shadow-title-logo $color-shadow-title);
 }
 
 .MainContainer__Title {
@@ -24,4 +25,5 @@
   font-family: 'Comfortaa', serif;
   font-size: $size-font-title;
   letter-spacing: $space-min-default;
+  text-shadow: 0 0 $size-shadow-title-text $color-shadow-title;
 }
