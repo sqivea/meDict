@@ -1,7 +1,8 @@
 import React from 'react';
+import cn from 'styles/CalendarWrapper.module.scss';
 
 const CalendarWrapper = () => (
-  <div className='MainWrapper'>
+  <div className={cn['MainWrapper']}>
     <p>Calendar</p>
   </div>
 );
