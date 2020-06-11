@@ -9,6 +9,7 @@ let mainWindow;
 
 const defaultWidth = 800;
 const defaultHeight = 400;
+const frameHeight = 30;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -18,6 +19,7 @@ function createWindow() {
     height: defaultHeight,
     minHeight: defaultHeight,
     maxHeight: defaultHeight,
+    frame: false,
     fullscreenable: false,
     resizable: false,
     center: true
