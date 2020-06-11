@@ -1,0 +1,11 @@
+@import './variables';
+
+.MainWrapper {
+  height: 100%;
+  background: $color_background_lighter;
+  color: $color_text;
+
+  & * {
+    margin: 0;
+  }
+}
