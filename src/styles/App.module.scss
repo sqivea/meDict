@@ -2,7 +2,7 @@
   display: grid;
   grid-template:
     'topPanel topPanel topPanel topPanel topPanel' 1fr
-    'content  content  content  calendar calendar' 6fr / 1fr 1fr 1fr 1fr 1fr;
+    'content  content  content  calendar calendar' 6fr / 3fr 2fr;
   min-height: 100vh;
   max-height: 100vh;
 }
