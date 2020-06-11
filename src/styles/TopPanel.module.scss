@@ -10,14 +10,18 @@
   align-items: center;
 }
 
+.MainConteainer__LogoWrapper {
+  margin-right: $space-min-default;
+}
+
 .MainContainer__Logo {
   width: 64px;
   height: 64px;
 }
 
 .MainContainer__Title {
-  margin: 0;
-  color: $color-text;
+  color: $color-text-title;
   font-family: 'Comfortaa', serif;
-  letter-spacing: .5em;
+  font-size: $size-font-title;
+  letter-spacing: $space-min-default;
 }
