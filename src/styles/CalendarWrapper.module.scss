@@ -3,12 +3,16 @@
 .MainWrapper {
   height: 100%;
   background: $color-background-darker;
-  color: $color-text;
+  color: $color-brand;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  & * {
-    margin: 0;
+  & button {
+    color: $color-brand; // Override ReactCalendar style.
+  }
+
+  & abbr[title] {
+    text-decoration: none; // Override ReactCalendar style.
   }
 }
