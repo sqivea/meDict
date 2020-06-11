@@ -1,13 +1,14 @@
 import React from 'react';
+import cn from 'styles/TitleBar.module.scss';
 
 const TitleBar = () => (
-  <div className='TitleBar'>
-    <nav className='TitleBar__nav'>
-      <div className='TitleBar__buttons'>
-        <div className='TitleBar__minimize'>
+  <div className={cn['TitleBar']}>
+    <nav className={cn['TitleBar__Nav']}>
+      <div className={cn['TitleBar__Buttons']}>
+        <div className={cn['TitleBar__Minimize']}>
           <span>-</span>
         </div>
-        <div className='TitleBar__close'>
+        <div className={cn['TitleBar__Close']}>
           <span>&times;</span>
         </div>
       </div>

@@ -1,4 +1,4 @@
-.title-bar {
+.TitleBar {
   width: 100%;
   height: 100%;
   display: block;
@@ -7,7 +7,7 @@
   left: 0;
 }
 
-.title-bar__nav {
+.TitleBar__Nav {
   display: block;
   width: 100%;
   height: 30px;
@@ -15,7 +15,7 @@
   -webkit-app-region: drag;
 }
 
-.title-bar__buttons {
+.TitleBar__Buttons {
   width: 150px;
   height: 100%;
   line-height: 30px;
@@ -24,8 +24,8 @@
   -webkit-app-region: no-drag;
 }
 
-.title-bar__close,
-.title-bar__minimize {
+.TitleBar__Close,
+.TitleBar__Minimize {
   width: 50%;
   height: 100%;
   float: left;
@@ -35,10 +35,10 @@
   cursor: default;
 }
 
-.title-bar__minimize:hover {
+.TitleBar__Minimize:hover {
   background: #444444;
 }
 
-.title-bar__close:hover {
+.TitleBar__Close:hover {
   background: #ff0000;
 }
