@@ -1,4 +1,5 @@
 import React from 'react';
+import TitleBar from 'components/TitleBar';
 import TopPanel from 'components/TopPanel';
 import Content from 'components/Content';
 import CalendarWrapper from 'components/CalendarWrapper';
@@ -9,6 +10,9 @@ import 'styles/vendor/normalize.scss';
 function App() {
   return (
     <div className={cn['App']}>
+      <div className={cn['App__TitleBar']}>
+        <TitleBar />
+      </div>
       <header className={cn['App__TopPanel']}>
         <TopPanel />
       </header>
