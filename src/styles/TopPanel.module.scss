@@ -3,7 +3,7 @@
 
 .MainContainer {
   min-height: 100%;
-  background: $color_background_darker;
+  background: $color-background-darker;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -17,7 +17,7 @@
 
 .MainContainer__Title {
   margin: 0;
-  color: $color_text;
+  color: $color-text;
   font-family: 'Comfortaa', serif;
   letter-spacing: .5em;
 }
