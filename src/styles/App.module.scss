@@ -1,22 +1,23 @@
+@import './variables';
+
 .App {
   display: grid;
   grid-template:
     'topPanel topPanel topPanel topPanel topPanel' 1fr
     'content  content  content  calendar calendar' 6fr;
   min-height: 100vh;
+  max-height: 100vh;
 }
 
 .App__TopPanel {
   grid-area: topPanel;
-  border: solid 2px;
+  // background: $color_background;
 }
 
 .App__Content {
   grid-area: content;
-  border: solid 2px;
 }
 
 .App__CalendarWrapper {
   grid-area: calendar;
-  border: solid 2px;
 }

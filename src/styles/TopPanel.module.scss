@@ -1,0 +1,20 @@
+@import './variables';
+
+.MainContainer {
+  min-height: 100%;
+  background: $color_background;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainContainer__Logo {
+  width: 64px;
+  height: 64px;
+}
+
+.MainContainer__Title {
+  margin: 0;
+  color: $color_text;
+}
