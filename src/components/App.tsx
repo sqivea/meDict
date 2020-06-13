@@ -10,6 +10,7 @@ import 'styles/vendor/normalize.scss';
 import DAO from 'db/DAO';
 
 const fillDatabase = () => {
+  DAO.getInstance().createDB();
 };
 
 const App = () => {

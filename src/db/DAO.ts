@@ -15,7 +15,7 @@ export default class DAO {
 
   private connection: sqlite3.Database | null = null;
 
-  private constructor(private dbPath: string = defaultDBPath) {}
+  private constructor() {}
 
   public static getInstance(): DAO {
     if (!DAO.instance) {
@@ -65,9 +65,9 @@ export default class DAO {
     );
   }
 
-  public createDB(): void {
-    if (!DAO.checkIfExists(this.dbPath)) {
-      this.connection = new sqlite3.Database(this.dbPath, (error) => {
+  public createDB(dbPath: string = defaultDBPath): void {
+    if (!DAO.checkIfExists(dbPath)) {
+      this.connection = new sqlite3.Database(dbPath, (error) => {
         throw error;
       });
       this.connection.run(
