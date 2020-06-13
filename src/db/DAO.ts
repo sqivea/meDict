@@ -43,6 +43,15 @@ class DAO {
     return result;
   }
 
+  public update(id: number, payload: Word): void {
+    /* eslint no-unused-expressions: off */
+    this.connection?.run(
+      `UPDATE words
+       SET word = ${payload.value},
+       WHERE id = ${id}`
+    );
+  }
+
   private createDB(dbPath: string): void {
     this.connection = new sqlite3.Database(dbPath, (error) => {
       throw error;
