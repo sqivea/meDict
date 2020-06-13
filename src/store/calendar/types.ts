@@ -6,7 +6,7 @@ export interface DateState {
 
 interface CalendarChangeDateAction {
   type: typeof CALENDAR_CHANGE_DATE,
-  payload: DateState
+  payload: Date
 }
 
-export type CalendarActionTypes = CalendarChangeDateAction;
+export type CalendarActionType = CalendarChangeDateAction;
