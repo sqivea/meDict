@@ -6,7 +6,7 @@ const defaultDBPath = './words.db';
 class DAO {
   private connection: sqlite3.Database | null = null;
 
-  connect(dbPath: string = defaultDBPath): void {
+  constructor(dbPath: string = defaultDBPath) {
     if (!DAO.checkIfExists(dbPath)) {
       this.createDB(dbPath);
     }
