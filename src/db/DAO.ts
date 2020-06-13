@@ -11,9 +11,18 @@ interface ReadQueryResult {
 }
 
 export default class DAO {
+  private static instance: DAO;
+
   private connection: sqlite3.Database | null = null;
 
-  constructor(private dbPath: string = defaultDBPath) {}
+  private constructor(private dbPath: string = defaultDBPath) {}
+
+  public static getInstance(): DAO {
+    if (!DAO.instance) {
+      DAO.instance = new DAO();
+    }
+    return DAO.instance;
+  }
 
   public create(word: Word): void {
     /* eslint no-unused-expressions: off */
