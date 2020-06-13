@@ -9,4 +9,4 @@ interface CalendarChangeDateAction {
   payload: DateState
 }
 
-export type CalendarActionType = CalendarChangeDateAction;
+export type CalendarActionTypes = CalendarChangeDateAction;
