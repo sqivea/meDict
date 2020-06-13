@@ -43,20 +43,20 @@ class DAO {
     return result;
   }
 
-  public update(id: number, payload: Word): void {
+  public update(payload: Word): void {
     /* eslint no-unused-expressions: off */
     this.connection?.run(
       `UPDATE words
        SET word = ${payload.value},
-       WHERE id = ${id}`
+       WHERE id = ${payload.id}`
     );
   }
 
-  public delete(id: number): void {
+  public delete(word: Word): void {
     /* eslint no-unused-expressions: off */
     this.connection?.run(
       `DELETE FROM words
-       WHERE id = ${id}`
+       WHERE id = ${word.id}`
     );
   }
 
@@ -80,7 +80,7 @@ class DAO {
   private static getWordsFromQueryResult(rows: ReadQueryResult[]): Word[] {
     const result: Word[] = [];
     rows.forEach((value) => {
-      result.push(new Word(value.word, value.date));
+      result.push(new Word(null, value.word, value.date));
     });
     return result;
   }
