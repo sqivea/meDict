@@ -31,17 +31,15 @@ class DAO {
 
   public read(date: Date): Word[] {
     let result: Word[] = [];
+    const query = `
+      SELECT *
+      FROM words
+      WHERE words.date = ${date.toUTCString()}
+      ORDER BY words.word`;
     /* eslint no-unused-expressions: off */
-    this.connection?.all(
-      `SELECT *
-       FROM words
-       WHERE words.date = ${date.toUTCString()}
-       ORDER BY words.word`,
-      (error, rows) => {
-        if (error) throw error;
-        result = DAO.getWordsFromQueryResult(rows);
-      }
-    );
+    this.connection?.all(query, (error, rows) => {
+      result = error ? [] : DAO.getWordsFromQueryResult(rows);
+    });
     return result;
   }
 
