@@ -3,14 +3,13 @@ import TitleBar from 'components/TitleBar';
 import TopPanel from 'components/TopPanel';
 import Content from 'components/Content';
 import CalendarWrapper from 'components/CalendarWrapper';
-import cn from 'styles/App.module.scss';
 
+import cn from 'styles/App.module.scss';
 import 'styles/vendor/normalize.scss';
 
-import sqlite3 from 'sqlite3';
+import DAO from 'db/DAO';
 
 const fillDatabase = () => {
-
 };
 
 const App = () => {

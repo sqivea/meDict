@@ -10,14 +10,10 @@ interface ReadQueryResult {
   date: string;
 }
 
-class DAO {
+export default class DAO {
   private connection: sqlite3.Database | null = null;
 
-  constructor(dbPath: string = defaultDBPath) {
-    if (!DAO.checkIfExists(dbPath)) {
-      this.createDB(dbPath);
-    }
-  }
+  constructor(private dbPath: string = defaultDBPath) {}
 
   public create(word: Word): void {
     /* eslint no-unused-expressions: off */
@@ -60,17 +56,19 @@ class DAO {
     );
   }
 
-  private createDB(dbPath: string): void {
-    this.connection = new sqlite3.Database(dbPath, (error) => {
-      throw error;
-    });
-    this.connection.run(
-      `CREATE TABLE words (
-        id INTEGER PRIMARY KEY,
-        word TEXT
-        date TEXT
-      )`
-    );
+  public createDB(): void {
+    if (!DAO.checkIfExists(this.dbPath)) {
+      this.connection = new sqlite3.Database(this.dbPath, (error) => {
+        throw error;
+      });
+      this.connection.run(
+        `CREATE TABLE words (
+          id INTEGER PRIMARY KEY,
+          word TEXT
+          date TEXT
+        )`
+      );
+    }
   }
 
   private static checkIfExists(dbPath: string): boolean {
