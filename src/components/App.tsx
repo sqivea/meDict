@@ -7,7 +7,15 @@ import cn from 'styles/App.module.scss';
 
 import 'styles/vendor/normalize.scss';
 
-function App() {
+import sqlite3 from 'sqlite3';
+
+const fillDatabase = () => {
+
+};
+
+const App = () => {
+  fillDatabase();
+
   return (
     <div className={cn['App']}>
       <div className={cn['App__TitleBar']}>
@@ -24,6 +32,6 @@ function App() {
       </aside>
     </div>
   );
-}
+};
 
 export default App;
