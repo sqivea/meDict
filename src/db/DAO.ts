@@ -52,6 +52,14 @@ class DAO {
     );
   }
 
+  public delete(id: number): void {
+    /* eslint no-unused-expressions: off */
+    this.connection?.run(
+      `DELETE FROM words
+       WHERE id = ${id}`
+    );
+  }
+
   private createDB(dbPath: string): void {
     this.connection = new sqlite3.Database(dbPath, (error) => {
       throw error;
