@@ -20,6 +20,7 @@ class DAO {
       `CREATE TABLE words (
         id INTEGER PRIMARY KEY,
         word TEXT
+        date TEXT
       )`
     );
   }
