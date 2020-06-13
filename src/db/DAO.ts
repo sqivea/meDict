@@ -38,11 +38,8 @@ class DAO {
        WHERE words.date = ${date.toUTCString()}
        ORDER BY words.word`,
       (error, rows) => {
-        if (error) {
-          throw error;
-        } else {
-          result = DAO.getWordsFromQueryResult(rows);
-        }
+        if (error) throw error;
+        result = DAO.getWordsFromQueryResult(rows);
       }
     );
     return result;
