@@ -9,12 +9,9 @@ import 'styles/vendor/normalize.scss';
 
 import DAO from 'db/DAO';
 
-const fillDatabase = () => {
-  DAO.getInstance().createDB();
-};
-
 const App = () => {
-  fillDatabase();
+  /* Initialize the storage. */
+  DAO.getInstance().createDB();
 
   return (
     <div className={cn['App']}>
