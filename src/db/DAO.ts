@@ -12,7 +12,7 @@ interface ReadQueryResult {
 }
 
 export default class DAO {
-  private static instance: DAO;
+  private static instance: DAO | null = null;
 
   // True type: sqlite3.Database.
   private connection: any = null;
