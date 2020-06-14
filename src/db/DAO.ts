@@ -1,9 +1,9 @@
-import { existsSync } from 'fs';
-import sqlite3 from 'sqlite3';
-
 import { Word } from './DBObjects';
 
-const defaultDBPath = './words.db';
+const existsSync = window.require('fs').existsSync;
+const sqlite3 = window.require('sqlite3');
+
+const defaultDBPath = './data/words.db';
 
 interface ReadQueryResult {
   word: string;

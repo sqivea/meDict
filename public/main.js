@@ -43,4 +43,6 @@ function createWindow() {
       createWindow();
     }
   });
+  // Allow use of native sqlite3 modules.
+  app.allowRendererProcessReuse = false;
 })();
