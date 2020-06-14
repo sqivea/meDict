@@ -1,9 +1,9 @@
 import { Word } from './DBObjects';
 
 const existsSync = window.require('fs').existsSync;
-const sqlite3 = window.require('sqlite3');
+const sqlite3 = window.require('sqlite3').verbose();
 
-const defaultDBPath = './data/words.db';
+const defaultDBPath = process.env.REACT_APP_DB_PATH || '';
 
 interface ReadQueryResult {
   word: string;
@@ -13,7 +13,8 @@ interface ReadQueryResult {
 export default class DAO {
   private static instance: DAO;
 
-  private connection: sqlite3.Database | null = null;
+  // True type: sqlite3.Database.
+  private connection: any = null;
 
   private constructor() {}
 
@@ -42,7 +43,7 @@ export default class DAO {
       WHERE words.date = ${date.toUTCString()}
       ORDER BY words.word`;
     /* eslint no-unused-expressions: off */
-    this.connection?.all(query, (error, rows) => {
+    this.connection?.all(query, (error: Error | null, rows: any[]) => {
       result = error ? [] : DAO.getWordsFromQueryResult(rows);
     });
     return result;
@@ -67,13 +68,16 @@ export default class DAO {
 
   public createDB(dbPath: string = defaultDBPath): void {
     if (!DAO.checkIfExists(dbPath)) {
-      this.connection = new sqlite3.Database(dbPath, (error) => {
-        throw error;
-      });
+      this.connection = new sqlite3.Database(
+        dbPath,
+        (error: Error | null) => {
+          throw error;
+        }
+      );
       this.connection.run(
         `CREATE TABLE words (
           id INTEGER PRIMARY KEY,
-          word TEXT
+          word TEXT,
           date TEXT
         )`
       );
