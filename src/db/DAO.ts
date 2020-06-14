@@ -6,6 +6,7 @@ const sqlite3 = window.require('sqlite3').verbose();
 const defaultDBPath = process.env.REACT_APP_DB_PATH || '';
 
 interface ReadQueryResult {
+  id: number;
   word: string;
   date: string;
 }
@@ -91,7 +92,7 @@ export default class DAO {
   private static getWordsFromQueryResult(rows: ReadQueryResult[]): Word[] {
     const result: Word[] = [];
     rows.forEach((value) => {
-      result.push(new Word(null, value.word, value.date));
+      result.push(new Word(value.id, value.word, value.date));
     });
     return result;
   }
