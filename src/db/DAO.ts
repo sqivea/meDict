@@ -79,6 +79,7 @@ export default class DAO {
         `CREATE TABLE words (
           id INTEGER PRIMARY KEY,
           word TEXT,
+          comment TEXT,
           date TEXT
         )`
       );
