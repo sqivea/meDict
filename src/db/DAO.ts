@@ -36,12 +36,12 @@ export default class DAO {
     );
   }
 
-  public read(date: Date): Word[] {
+  public read(dateString: string): Word[] {
     let result: Word[] = [];
     const query = `
       SELECT *
       FROM words
-      WHERE words.date = ${date.toUTCString()}
+      WHERE words.date = '${dateString}'
       ORDER BY words.word`;
     /* eslint no-unused-expressions: off */
     this.connection?.all(query, (error: Error | null, rows: any[]) => {
