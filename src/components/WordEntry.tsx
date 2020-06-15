@@ -22,6 +22,11 @@ function WordEntry({
             defaultValue={comment}
           />
         </div>
+        <div className='ButtonWrapper'>
+          <button type='button'>
+            <span role='img' aria-label='Save button'>💾</span>
+          </button>
+        </div>
       </div>
     </div>
   );
