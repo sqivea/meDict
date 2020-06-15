@@ -2,6 +2,7 @@ export class Word {
   constructor(
     public id: number | null,
     public value: string,
+    public comment: string,
     public date: string
   ) {}
 

@@ -79,7 +79,7 @@ export default class DAO {
   private static getWordsFromQueryResult(rows: any[]): Word[] {
     const result: Word[] = [];
     rows.forEach((value) => {
-      result.push(new Word(value.id, value.word, value.date));
+      result.push(new Word(value.id, value.word, value.comment, value.date));
     });
     return result;
   }
