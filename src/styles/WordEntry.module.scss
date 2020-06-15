@@ -22,6 +22,18 @@
   line-height: initial;
   background-color: $color-text-area;
   border: solid $color-text-area;
+  outline: none;
+
+  &:hover {
+    background-color: $color-text-area-lighter;
+    border-color: $color-text-area-lighter;
+  }
+
+  &:active {
+    background-color: $color-text-area-darker;
+    border-color: $color-text-area-darker;
+    outline: none;
+  }
 
   &:hover::after {
     position: absolute;
