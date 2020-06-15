@@ -26,7 +26,7 @@ function WordEntry({
           <button
             className={cn['WordForm__Button']}
             type='button'
-            title='Save changes'
+            data-tooltip='Save changes'
           >
             <span role='img' aria-label='Save button'>💾</span>
           </button>
@@ -35,7 +35,7 @@ function WordEntry({
           <button
             className={cn['WordForm__Button']}
             type='button'
-            title='Remove the word'
+            data-tooltip='Remove the word'
           >
             <span role='img' aria-label='Remove button'>❌</span>
           </button>
