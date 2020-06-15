@@ -7,7 +7,7 @@ const isDev = require('electron-is-dev');
 
 let mainWindow;
 
-const defaultWidth = 800;
+const defaultWidth = 830;
 const defaultHeight = 430;
 
 function createWindow() {
