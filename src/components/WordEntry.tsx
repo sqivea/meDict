@@ -22,13 +22,21 @@ function WordEntry({
             defaultValue={comment}
           />
         </div>
-        <div className='ButtonWrapper'>
-          <button type='button'>
+        <div className={cn['ButtonWrapper']}>
+          <button
+            className={cn['WordForm__Button']}
+            type='button'
+            title='Save changes'
+          >
             <span role='img' aria-label='Save button'>💾</span>
           </button>
         </div>
-        <div className='ButtonWrapper'>
-          <button type='button'>
+        <div className={cn['ButtonWrapper']}>
+          <button
+            className={cn['WordForm__Button']}
+            type='button'
+            title='Remove the word'
+          >
             <span role='img' aria-label='Remove button'>❌</span>
           </button>
         </div>
