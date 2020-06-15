@@ -14,6 +14,9 @@
 # Databases.
 *.db
 
+# Bindings cache.
+.mypy_cache
+
 # Misc.
 .DS_Store
 .env.local

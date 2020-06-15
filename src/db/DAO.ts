@@ -1,7 +1,6 @@
-import Database, { Database as DatabaseAsType } from 'better-sqlite3';
-
 import { Word } from './DBObjects';
 
+const Database = window.require('better-sqlite3');
 const existsSync = window.require('fs').existsSync;
 
 const defaultDBPath = process.env.REACT_APP_DB_PATH || '';
@@ -9,7 +8,8 @@ const defaultDBPath = process.env.REACT_APP_DB_PATH || '';
 export default class DAO {
   private static instance: DAO | null = null;
 
-  private connection: DatabaseAsType | null = null;
+  // True type: BetterSqlite3.Database.
+  private connection: any = null;
 
   private constructor() {}
 
