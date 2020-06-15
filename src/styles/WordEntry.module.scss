@@ -1,0 +1,19 @@
+@import './variables';
+
+.WordForm {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+.WordForm__TextArea {
+  resize: none;
+  text-align: center;
+  height: $size-text-area-height;
+  font-size: calc(#{$size-text-area-height} - 1);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $color-text-area;
+  color: $color-text-area-text;
+  border: none;
+  border-radius: $size-text-are-border-radius;
+}

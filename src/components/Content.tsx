@@ -10,14 +10,16 @@ const Content = () => {
   const words = DAO.getInstance().read(toShortDateString(new Date()));
   return (
     <div className={cn['MainWrapper']}>
-      <div className={cn['WordsList']}>
-        {words.map((word) => (
-          <WordEntry
-            key={word.id}
-            word={word.value}
-            comment={word.comment}
-          />
-        ))}
+      <div className={cn['ListWrapper']}>
+        <div className={cn['WordsList']}>
+          {words.map((word) => (
+            <WordEntry
+              key={word.id}
+              word={word.value}
+              comment={word.comment}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
