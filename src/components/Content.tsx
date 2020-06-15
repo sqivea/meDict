@@ -20,6 +20,7 @@ const Content = () => {
             />
           ))}
         </div>
+        <div className='AdderWrapper' />
       </div>
     </div>
   );
