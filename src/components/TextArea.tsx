@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextArea = () => (
+const TextArea = ({ word, comment }) => (
   <div className='MainWrapper'>
     <textarea />
   </div>
