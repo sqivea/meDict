@@ -1,4 +1,6 @@
 import React from 'react';
+import WordEntry from 'components/WordEntry';
+
 import cn from 'styles/Content.module.scss';
 
 import DAO from 'db/DAO';
@@ -9,12 +11,12 @@ const Content = () => {
   return (
     <div className={cn['MainWrapper']}>
       <div className={cn['WordsList']}>
-        {words.map((value) => (
-          <p>
-            {value.value}
-            {value.comment}
-            {value.date}
-          </p>
+        {words.map((word) => (
+          <WordEntry
+            key={word.id}
+            word={word.value}
+            comment={word.comment}
+          />
         ))}
       </div>
     </div>
