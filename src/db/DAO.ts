@@ -1,7 +1,8 @@
+import sqlite3 from 'better-sqlite3';
+
 import { Word } from './DBObjects';
 
 const existsSync = window.require('fs').existsSync;
-const sqlite3 = window.require('sqlite3').verbose();
 
 const defaultDBPath = process.env.REACT_APP_DB_PATH || '';
 
@@ -67,14 +68,15 @@ export default class DAO {
     );
   }
 
-  public createDB(dbPath: string = defaultDBPath): void {
-    if (!DAO.checkIfExists(dbPath)) {
-      this.connection = new sqlite3.Database(
-        dbPath,
-        (error: Error | null) => {
-          throw error;
-        }
-      );
+  public setupDB(dbPath: string = defaultDBPath): void {
+    const dbNotFilled = !DAO.checkIfExists(dbPath);
+    this.connection = new sqlite3.Database(
+      dbPath,
+      (error: Error | null) => {
+        throw error;
+      }
+    );
+    if (dbNotFilled) {
       this.connection.run(
         `CREATE TABLE words (
           id INTEGER PRIMARY KEY,
