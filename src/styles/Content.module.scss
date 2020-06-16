@@ -4,7 +4,7 @@
   height: 100%;
   display: grid;
   grid-template:
-    'listWrapper'  6fr
+    'listWrapper'  5fr
     'adderWrapper' 1fr;
   background: $color-background-lighter;
   color: $color-brand;
@@ -21,4 +21,5 @@
 
 .AdderWrapper {
   grid-area: adderWrapper;
+  width: 100%;
 }
