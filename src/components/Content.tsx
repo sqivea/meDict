@@ -1,5 +1,6 @@
 import React from 'react';
 import WordEntry from 'components/WordEntry';
+import AdderPanel from 'components/AdderPanel';
 
 import cn from 'styles/Content.module.scss';
 
@@ -20,7 +21,9 @@ const Content = () => {
             />
           ))}
         </div>
-        <div className='AdderWrapper' />
+        <div className={cn['AdderWrapper']}>
+          <AdderPanel />
+        </div>
       </div>
     </div>
   );
