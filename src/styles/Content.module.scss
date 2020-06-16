@@ -2,6 +2,10 @@
 
 .MainWrapper {
   height: 100%;
+  display: grid;
+  grid-template:
+    'listWrapper'  6fr
+    'adderWrapper' 1fr;
   background: $color-background-lighter;
   color: $color-brand;
 
@@ -11,10 +15,10 @@
 }
 
 .ListWrapper {
+  grid-area: listWrapper;
   padding: $space-min-default 0;
 }
 
 .AdderWrapper {
-  position: absolute;
-  bottom: 0;
+  grid-area: adderWrapper;
 }

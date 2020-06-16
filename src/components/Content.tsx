@@ -21,9 +21,9 @@ const Content = () => {
             />
           ))}
         </div>
-        <div className={cn['AdderWrapper']}>
-          <AdderPanel />
-        </div>
+      </div>
+      <div className={cn['AdderWrapper']}>
+        <AdderPanel />
       </div>
     </div>
   );
