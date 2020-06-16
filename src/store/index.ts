@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { calendarReducer } from './calendar/reducers';
 
 const rootReducer = combineReducers({
@@ -7,4 +7,5 @@ const rootReducer = combineReducers({
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
-export default rootReducer;
+const store = createStore(rootReducer);
+export default store;

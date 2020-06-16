@@ -4,14 +4,12 @@ import TopPanel from 'components/TopPanel';
 import Content from 'components/Content';
 import CalendarWrapper from 'components/CalendarWrapper';
 
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from 'store';
+import store from 'store';
 
 import cn from 'styles/App.module.scss';
 import 'styles/vendor/normalize.scss';
 
-const store = createStore(rootReducer);
 
 const App = () => (
   <Provider store={store}>

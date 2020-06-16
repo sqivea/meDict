@@ -6,8 +6,10 @@ import cn from 'styles/Content.module.scss';
 import DAO from 'db/DAO';
 import { toShortDateString } from 'misc/dateConverter';
 
-const Content = () => {
-  const words = DAO.getInstance().read(toShortDateString(new Date()));
+import { connect } from 'react-redux';
+
+const Content = ({ pickedDate }: { pickedDate: Date }) => {
+  const words = DAO.getInstance().read(toShortDateString(pickedDate));
   return (
     <div className={cn['MainWrapper']}>
       <div className={cn['ListWrapper']}>
@@ -36,4 +38,7 @@ const Content = () => {
   );
 };
 
-export default Content;
+const mapStateToProps = (state: any) => ({
+  pickedDate: state.calendar.date
+});
+export default connect(mapStateToProps)(Content);
