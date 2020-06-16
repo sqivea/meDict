@@ -1,8 +1,9 @@
 @import './variables';
 
 .WordForm {
+  padding: 0 5px;
   display: grid;
-  grid-template: 'textAreasWrapper buttonsWrapper' auto / 6fr 1fr
+  grid-template: 'textAreasWrapper buttonsWrapper' auto / 6fr 1fr;
 }
 
 .WordForm__TextAreasWrapper {
@@ -13,6 +14,10 @@
 .WordForm__ButtonsWrapper {
   grid-area: buttonsWrapper;
   display: flex;
+}
+
+.TextAreaWrapper {
+  padding-right: $space-min-absolute;
 }
 
 .WordForm__TextArea {
@@ -29,7 +34,9 @@
 
 .WordForm__Button {
   line-height: initial;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: $color-text-area;
+  color: $color-text-area-text;
   border: solid $color-text-area;
   outline: none;
 
@@ -55,4 +62,9 @@
     padding: .25em .5em;
     font-family: Arial, Helvetica, sans-serif;
   }
+}
+
+.WordForm__Button--FixedSize {
+  width: $size-fixed-width-button;
+  height: $size-fixed-height-button;
 }

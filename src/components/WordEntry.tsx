@@ -67,7 +67,10 @@ function WordEntry({
             ? (
               <div className={cn['ButtonWrapper']}>
                 <button
-                  className={cn['WordForm__Button']}
+                  className={cx(
+                    cn['WordForm__Button'],
+                    cn['WordForm__Button--FixedSize']
+                  )}
                   type='button'
                   data-tooltip='Remove the word'
                 >
