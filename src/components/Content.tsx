@@ -12,6 +12,16 @@ interface ContentProps {
   pickedDate: Date
 }
 
+interface ICombinedStore {
+  calendar: {
+    date: Date
+  }
+}
+
+const mapStateToProps = (state: ICombinedStore) => ({
+  pickedDate: state.calendar.date
+});
+
 const Content = ({ pickedDate }: ContentProps) => {
   const words = DAO.getInstance().read(toShortDateString(pickedDate));
   return (
@@ -42,7 +52,4 @@ const Content = ({ pickedDate }: ContentProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  pickedDate: state.calendar.date
-});
 export default connect(mapStateToProps)(Content);
