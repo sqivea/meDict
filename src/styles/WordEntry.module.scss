@@ -1,9 +1,18 @@
 @import './variables';
 
 .WordForm {
+  display: grid;
+  grid-template: 'textAreasWrapper buttonsWrapper' auto / 6fr 1fr
+}
+
+.WordForm__TextAreasWrapper {
+  grid-area: textAreasWrapper;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
+}
+
+.WordForm__ButtonsWrapper {
+  grid-area: buttonsWrapper;
+  display: flex;
 }
 
 .WordForm__TextArea {
