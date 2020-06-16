@@ -36,7 +36,8 @@ function WordEntry({
                 <button
                   className={cx(
                     cn['WordForm__Button'],
-                    cn['WordForm__Button--WithTooltip']
+                    cn['WordForm__Button--WithTooltip'],
+                    cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
                   data-tooltip='Save changes'
@@ -53,7 +54,8 @@ function WordEntry({
                 <button
                   className={cx(
                     cn['WordForm__Button'],
-                    cn['WordForm__Button--WithTooltip']
+                    cn['WordForm__Button--WithTooltip'],
+                    cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
                   data-tooltip='Remove the word'
@@ -69,10 +71,10 @@ function WordEntry({
                 <button
                   className={cx(
                     cn['WordForm__Button'],
-                    cn['WordForm__Button--FixedSize']
+                    cn['WordForm__Button--FixedWidth'],
+                    cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
-                  data-tooltip='Remove the word'
                 >
                   Add
                 </button>
