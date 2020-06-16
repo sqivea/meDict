@@ -21,5 +21,6 @@
 
 .AdderWrapper {
   grid-area: adderWrapper;
-  width: 100%;
+  padding: $space-min-default 0;
+  background-color: $color-background-darker;
 }

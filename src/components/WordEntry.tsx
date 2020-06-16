@@ -5,7 +5,8 @@ import cn from 'styles/WordEntry.module.scss';
 
 function WordEntry({
   word,
-  comment
+  comment,
+  addingMode
 }: InferProps<typeof WordEntry.propTypes>) {
   return (
     <div className={cn['MainWrapper']}>
@@ -27,24 +28,33 @@ function WordEntry({
         </div>
 
         <div className={cn['WordForm__ButtonsWrapper']}>
-          <div className={cn['ButtonWrapper']}>
-            <button
-              className={cn['WordForm__Button']}
-              type='button'
-              data-tooltip='Save changes'
-            >
-              <span role='img' aria-label='Save button'>💾</span>
-            </button>
-          </div>
-          <div className={cn['ButtonWrapper']}>
-            <button
-              className={cn['WordForm__Button']}
-              type='button'
-              data-tooltip='Remove the word'
-            >
-              <span role='img' aria-label='Remove button'>❌</span>
-            </button>
-          </div>
+          {addingMode
+            ? null
+            : (
+              <div className={cn['ButtonWrapper']}>
+                <button
+                  className={cn['WordForm__Button']}
+                  type='button'
+                  data-tooltip='Save changes'
+                >
+                  <span role='img' aria-label='Save button'>💾</span>
+                </button>
+              </div>
+            )}
+
+          {addingMode
+            ? null
+            : (
+              <div className={cn['ButtonWrapper']}>
+                <button
+                  className={cn['WordForm__Button']}
+                  type='button'
+                  data-tooltip='Remove the word'
+                >
+                  <span role='img' aria-label='Remove button'>❌</span>
+                </button>
+              </div>
+            )}
         </div>
 
       </div>
@@ -54,7 +64,8 @@ function WordEntry({
 
 WordEntry.propTypes = {
   word: PropTypes.string.isRequired,
-  comment: PropTypes.string.isRequired
+  comment: PropTypes.string.isRequired,
+  addingMode: PropTypes.bool.isRequired
 };
 
 export default WordEntry;

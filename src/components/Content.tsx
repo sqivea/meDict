@@ -18,12 +18,20 @@ const Content = () => {
               key={word.id}
               word={word.value}
               comment={word.comment}
+              addingMode={false}
             />
           ))}
         </div>
       </div>
       <div className={cn['AdderWrapper']}>
-        <AdderPanel />
+        <div className={cn['WordsList']}>
+          <WordEntry
+            key=''
+            word=''
+            comment=''
+            addingMode
+          />
+        </div>
       </div>
     </div>
   );
