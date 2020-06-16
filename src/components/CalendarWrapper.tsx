@@ -9,7 +9,7 @@ import cn from 'styles/CalendarWrapper.module.scss';
 import 'react-calendar/dist/Calendar.css';
 import 'styles/overrides/Calendar.scss';
 
-interface SetDateProp {
+interface CalendarWrapperProps {
   setDateProp: (newDate: Date) => CalendarActionType
 }
 
@@ -17,11 +17,13 @@ const mapDispatchToProps = {
   setDateProp: setDate
 };
 
-const CalendarWrapper = ({ setDateProp }: SetDateProp) => (
+const CalendarWrapper = ({ setDateProp }: CalendarWrapperProps) => (
   <div className={cn['MainWrapper']}>
     <Calendar
       className={cn['Calendar']}
-      onChange={(value) => setDateProp(value instanceof Date ? value : value[0])}
+      onChange={
+        (value) => setDateProp(value instanceof Date ? value : value[0])
+      }
     />
   </div>
 );

@@ -8,7 +8,11 @@ import { toShortDateString } from 'misc/dateConverter';
 
 import { connect } from 'react-redux';
 
-const Content = ({ pickedDate }: { pickedDate: Date }) => {
+interface ContentProps {
+  pickedDate: Date
+}
+
+const Content = ({ pickedDate }: ContentProps) => {
   const words = DAO.getInstance().read(toShortDateString(pickedDate));
   return (
     <div className={cn['MainWrapper']}>
