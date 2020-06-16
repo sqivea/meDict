@@ -43,11 +43,13 @@
     border-color: $color-text-area-darker;
     outline: none;
   }
+}
 
+.WordForm__Button--WithTooltip {
   &:hover::after {
     position: absolute;
     content: attr(data-tooltip);
-    background-color: #333;
+    background-color: $color-tooltip-background;
     color: white;
     margin: 1em 0;
     padding: .25em .5em;

@@ -1,6 +1,5 @@
 import React from 'react';
 import WordEntry from 'components/WordEntry';
-import AdderPanel from 'components/AdderPanel';
 
 import cn from 'styles/Content.module.scss';
 

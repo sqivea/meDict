@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes, { InferProps } from 'prop-types';
 
+import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
 
 function WordEntry({
@@ -33,7 +34,10 @@ function WordEntry({
             : (
               <div className={cn['ButtonWrapper']}>
                 <button
-                  className={cn['WordForm__Button']}
+                  className={cx(
+                    cn['WordForm__Button'],
+                    cn['WordForm__Button--WithTooltip']
+                  )}
                   type='button'
                   data-tooltip='Save changes'
                 >
@@ -47,7 +51,10 @@ function WordEntry({
             : (
               <div className={cn['ButtonWrapper']}>
                 <button
-                  className={cn['WordForm__Button']}
+                  className={cx(
+                    cn['WordForm__Button'],
+                    cn['WordForm__Button--WithTooltip']
+                  )}
                   type='button'
                   data-tooltip='Remove the word'
                 >
@@ -55,6 +62,20 @@ function WordEntry({
                 </button>
               </div>
             )}
+
+          {addingMode
+            ? (
+              <div className={cn['ButtonWrapper']}>
+                <button
+                  className={cn['WordForm__Button']}
+                  type='button'
+                  data-tooltip='Remove the word'
+                >
+                  Add
+                </button>
+              </div>
+            )
+            : null}
         </div>
 
       </div>
