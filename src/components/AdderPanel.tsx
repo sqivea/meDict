@@ -5,8 +5,8 @@ import cn from 'styles/AdderPanel.module.scss';
 const AdderPanel = () => (
   <div className={cn['MainWrapper']}>
     <div className={cn['AdderForm']}>
-      <textarea>word</textarea>
-      <textarea>comment</textarea>
+      <textarea />
+      <textarea />
     </div>
   </div>
 );
