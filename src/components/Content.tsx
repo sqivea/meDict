@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import WordEntry from 'components/WordEntry';
 
 import cn from 'styles/Content.module.scss';
@@ -24,6 +24,9 @@ const mapStateToProps = (state: ICombinedStore) => ({
 
 const Content = ({ pickedDate }: ContentProps) => {
   const words = DAO.getInstance().read(toShortDateString(pickedDate));
+  const [, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
+
   return (
     <div className={cn['MainWrapper']}>
       <div className={cn['ListWrapper']}>
@@ -35,6 +38,7 @@ const Content = ({ pickedDate }: ContentProps) => {
               word={word.value || ''}
               comment={word.comment || ''}
               addingMode={false}
+              parentOnDBUpdateCallback={forceUpdate}
             />
           ))}
         </div>
@@ -46,6 +50,7 @@ const Content = ({ pickedDate }: ContentProps) => {
             word=''
             comment=''
             addingMode
+            parentOnDBUpdateCallback={forceUpdate}
           />
         </div>
       </div>

@@ -7,19 +7,36 @@ import { Word } from 'db/DBObjects';
 import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
 
+/**
+ * A function to call DAO's update method.
+ * @param word the payload
+ */
 const updateWord = (word: Word): void => {
   DAO.getInstance().update(word);
 };
 
-const deleteWord = (word: Word): void => {
+/**
+ * A function to call DAO's delete method.
+ * @param word the payload
+ * @param callback stuff to do after the deletion.
+ */
+const deleteWord = (
+  word: Word,
+  callback: ((...args: any[]) => any)
+): void => {
   DAO.getInstance().delete(word);
+  // The parent component needs to rerender
+  // after one of the words has been removed from the DB.
+  // We can provide that using a callback from the parent.
+  callback();
 };
 
 function WordEntry({
   id,
   word,
   comment,
-  addingMode
+  addingMode,
+  parentOnDBUpdateCallback
 }: InferProps<typeof WordEntry.propTypes>) {
   const [wordInputValue, setWordInputValue] = useState(word);
   const [commentInputValue, setCommentInputValue] = useState(comment);
@@ -78,7 +95,10 @@ function WordEntry({
                     cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
-                  onClick={() => deleteWord(new Word(id || 0))}
+                  onClick={() => deleteWord(
+                    new Word(id || 0),
+                    parentOnDBUpdateCallback || (() => { })
+                  )}
                   data-tooltip='Remove the word'
                 >
                   <span role='img' aria-label='Remove button'>❌</span>
@@ -113,11 +133,13 @@ WordEntry.propTypes = {
   id: PropTypes.number,
   word: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
-  addingMode: PropTypes.bool.isRequired
+  addingMode: PropTypes.bool.isRequired,
+  parentOnDBUpdateCallback: PropTypes.func
 };
 
 WordEntry.defaultProps = {
-  id: 0
+  id: 0,
+  parentOnDBUpdateCallback: null
 };
 
 export default WordEntry;
