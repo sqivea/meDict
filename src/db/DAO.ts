@@ -66,10 +66,11 @@ export default class DAO {
       parent: app.getCurrentWindow(),
       modal: true,
     });
-    // /home/mavedev/Documents/Work/Nodejs/work/me-dict/public/modal.html
     const url = `file://${path.join(__dirname, modalWindowPath)}`;
-    loadingScreen.webContents.openDevTools();
     loadingScreen.loadURL(url);
+    setTimeout(() => {
+      loadingScreen.close();
+    }, 1000);
   }
 
   public delete(word: Word): void {
