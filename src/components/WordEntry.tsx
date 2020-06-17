@@ -78,6 +78,7 @@ function WordEntry({
                     cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
+                  onClick={() => deleteWord(new Word(id || 0))}
                   data-tooltip='Remove the word'
                 >
                   <span role='img' aria-label='Remove button'>❌</span>

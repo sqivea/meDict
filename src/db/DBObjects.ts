@@ -1,8 +1,8 @@
 export class Word {
   constructor(
-    public id: number | undefined,
-    public value: string,
-    public comment: string,
+    public id?: number,
+    public value?: string,
+    public comment?: string,
     public date?: string
   ) {}
 
