@@ -25,6 +25,7 @@ export default class DAO {
     this.connection?.exec(
       `INSERT INTO words VALUES(
         '${word.value}',
+        '${word.comment}',
         '${word.date}'
       )`
     );

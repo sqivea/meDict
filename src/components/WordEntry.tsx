@@ -3,6 +3,9 @@ import PropTypes, { InferProps } from 'prop-types';
 
 import DAO from 'db/DAO';
 import { Word } from 'db/DBObjects';
+import { toShortDateString } from 'misc/dateConverter';
+
+import store from 'store';
 
 import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
@@ -131,7 +134,15 @@ function WordEntry({
                     cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
-                  onClick={() => { }}
+                  onClick={() => createWord(
+                    new Word(
+                      0,
+                      wordInputValue,
+                      commentInputValue,
+                      toShortDateString(store.getState().calendar.date)
+                    ),
+                    parentOnDBUpdateCallback || (() => { })
+                  )}
                 >
                   Add
                 </button>
