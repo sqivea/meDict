@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes, { InferProps } from 'prop-types';
 
 import DAO from 'db/DAO';
@@ -21,6 +21,9 @@ function WordEntry({
   comment,
   addingMode
 }: InferProps<typeof WordEntry.propTypes>) {
+  const [wordInputValue, setWordInputValue] = useState(word);
+  const [commentInputValue, setCommentInputValue] = useState(comment);
+
   return (
     <div className={cn['MainWrapper']}>
       <div className={cn['WordForm']}>
@@ -29,13 +32,15 @@ function WordEntry({
           <div className={cn['TextAreaWrapper']}>
             <textarea
               className={cn['WordForm__TextArea']}
-              defaultValue={word}
+              value={wordInputValue}
+              onChange={(event) => setWordInputValue(event.target.value)}
             />
           </div>
           <div className={cn['TextAreaWrapper']}>
             <textarea
               className={cn['WordForm__TextArea']}
-              defaultValue={comment}
+              value={commentInputValue}
+              onChange={(event) => setCommentInputValue(event.target.value)}
             />
           </div>
         </div>
@@ -52,6 +57,7 @@ function WordEntry({
                     cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
+                  onClick={() => updateWord(new Word(id || 0, word, comment))}
                   data-tooltip='Save changes'
                 >
                   <span role='img' aria-label='Save button'>💾</span>

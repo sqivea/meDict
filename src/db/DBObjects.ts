@@ -3,7 +3,7 @@ export class Word {
     public id: number | undefined,
     public value: string,
     public comment: string,
-    public date: string
+    public date?: string
   ) {}
 
   public equals(that: Word): boolean {
