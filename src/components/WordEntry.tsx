@@ -128,7 +128,8 @@ function WordEntry({
           className={cx(
             cn['WordForm__Button'],
             cn['WordForm__Button--FixedWidth'],
-            cn['WordForm__Button--FixedHeight']
+            cn['WordForm__Button--FixedHeight'],
+            cn['WordForm__Button--CanBeDisabled']
           )}
           disabled={
             wordInputValue.replace(/\s/g, '') === ''
