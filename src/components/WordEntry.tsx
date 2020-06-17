@@ -1,8 +1,19 @@
 import React from 'react';
 import PropTypes, { InferProps } from 'prop-types';
 
+import DAO from 'db/DAO';
+import { Word } from 'db/DBObjects';
+
 import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
+
+const updateWord = (word: Word): void => {
+  DAO.getInstance().update(word);
+};
+
+const deleteWord = (word: Word): void => {
+  DAO.getInstance().delete(word);
+};
 
 function WordEntry({
   id,
