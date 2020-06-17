@@ -131,15 +131,20 @@ function WordEntry({
             cn['WordForm__Button--FixedHeight']
           )}
           type='button'
-          onClick={() => createWord(
-            new Word(
-              0,
-              wordInputValue,
-              commentInputValue,
-              toShortDateString(store.getState().calendar.date)
-            ),
-            parentOnDBUpdateCallback || (() => { })
-          )}
+          onClick={() => {
+            createWord(
+              new Word(
+                0,
+                wordInputValue,
+                commentInputValue,
+                toShortDateString(store.getState().calendar.date)
+              ),
+              parentOnDBUpdateCallback || (() => { })
+            );
+            // Clear the input values.
+            setWordInputValue('');
+            setCommentInputValue('');
+          }}
         >
           Add
         </button>
