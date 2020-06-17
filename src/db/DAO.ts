@@ -44,7 +44,7 @@ export default class DAO {
     /* eslint-disable-next-line no-unused-expressions */
     this.connection?.exec(
       `UPDATE words
-       SET word = ${payload.value},
+       SET word = ${payload.value}
        WHERE id = ${payload.id}`
     );
   }
