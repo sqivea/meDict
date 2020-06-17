@@ -31,6 +31,7 @@ const Content = ({ pickedDate }: ContentProps) => {
           {words.map((word) => (
             <WordEntry
               key={word.id}
+              id={word.id}
               word={word.value}
               comment={word.comment}
               addingMode={false}

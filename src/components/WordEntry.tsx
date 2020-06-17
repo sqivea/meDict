@@ -5,6 +5,7 @@ import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
 
 function WordEntry({
+  id,
   word,
   comment,
   addingMode
@@ -89,9 +90,14 @@ function WordEntry({
 }
 
 WordEntry.propTypes = {
+  id: PropTypes.number,
   word: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
   addingMode: PropTypes.bool.isRequired
+};
+
+WordEntry.defaultProps = {
+  id: 0
 };
 
 export default WordEntry;
