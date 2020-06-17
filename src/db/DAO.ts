@@ -23,7 +23,7 @@ export default class DAO {
   public create(word: Word): void {
     /* eslint-disable-next-line no-unused-expressions */
     this.connection?.exec(
-      `INSERT INTO words VALUES(
+      `INSERT INTO words (word, comment, date) VALUES(
         '${word.value}',
         '${word.comment}',
         '${word.date}'
