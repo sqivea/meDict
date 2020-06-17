@@ -8,6 +8,21 @@ import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
 
 /**
+ * A function to call DAO's create method.
+ * @param word the payload
+ */
+const createWord = (
+  word: Word,
+  callback: ((...args: any[]) => any)
+): void => {
+  DAO.getInstance().create(word);
+  // The parent component needs to rerender
+  // after one of the words has been added to the DB.
+  // We can provide that using a callback from the parent.
+  callback();
+};
+
+/**
  * A function to call DAO's update method.
  * @param word the payload
  */
@@ -116,6 +131,7 @@ function WordEntry({
                     cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
+                  onClick={() => { }}
                 >
                   Add
                 </button>
