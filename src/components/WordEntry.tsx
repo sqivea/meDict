@@ -59,96 +59,103 @@ function WordEntry({
   const [wordInputValue, setWordInputValue] = useState(word);
   const [commentInputValue, setCommentInputValue] = useState(comment);
 
+  const textAreasWrapper = (
+    <div className={cn['WordForm__TextAreasWrapper']}>
+      <div className={cn['TextAreaWrapper']}>
+        <textarea
+          className={cn['WordForm__TextArea']}
+          value={wordInputValue}
+          onChange={(event) => setWordInputValue(event.target.value)}
+        />
+      </div>
+      <div className={cn['TextAreaWrapper']}>
+        <textarea
+          className={cn['WordForm__TextArea']}
+          value={commentInputValue}
+          onChange={(event) => setCommentInputValue(event.target.value)}
+        />
+      </div>
+    </div>
+  );
+
+  const updateButtonWrapper = addingMode
+    ? null
+    : (
+      <div className={cn['ButtonWrapper']}>
+        <button
+          className={cx(
+            cn['WordForm__Button'],
+            cn['WordForm__Button--WithTooltip'],
+            cn['WordForm__Button--FixedHeight']
+          )}
+          type='button'
+          onClick={() => updateWord(
+            new Word(id || 0, wordInputValue, commentInputValue)
+          )}
+          data-tooltip='Save changes'
+        >
+          <span role='img' aria-label='Save button'>💾</span>
+        </button>
+      </div>
+    );
+
+  const deleteButtonWrapper = addingMode
+    ? null
+    : (
+      <div className={cn['ButtonWrapper']}>
+        <button
+          className={cx(
+            cn['WordForm__Button'],
+            cn['WordForm__Button--WithTooltip'],
+            cn['WordForm__Button--FixedHeight']
+          )}
+          type='button'
+          onClick={() => deleteWord(
+            new Word(id || 0),
+            parentOnDBUpdateCallback || (() => { })
+          )}
+          data-tooltip='Remove the word'
+        >
+          <span role='img' aria-label='Remove button'>❌</span>
+        </button>
+      </div>
+    );
+
+  const createButtonWrapper = addingMode
+    ? (
+      <div className={cn['ButtonWrapper']}>
+        <button
+          className={cx(
+            cn['WordForm__Button'],
+            cn['WordForm__Button--FixedWidth'],
+            cn['WordForm__Button--FixedHeight']
+          )}
+          type='button'
+          onClick={() => createWord(
+            new Word(
+              0,
+              wordInputValue,
+              commentInputValue,
+              toShortDateString(store.getState().calendar.date)
+            ),
+            parentOnDBUpdateCallback || (() => { })
+          )}
+        >
+          Add
+        </button>
+      </div>
+    )
+    : null;
+
   return (
     <div className={cn['MainWrapper']}>
       <div className={cn['WordForm']}>
-
-        <div className={cn['WordForm__TextAreasWrapper']}>
-          <div className={cn['TextAreaWrapper']}>
-            <textarea
-              className={cn['WordForm__TextArea']}
-              value={wordInputValue}
-              onChange={(event) => setWordInputValue(event.target.value)}
-            />
-          </div>
-          <div className={cn['TextAreaWrapper']}>
-            <textarea
-              className={cn['WordForm__TextArea']}
-              value={commentInputValue}
-              onChange={(event) => setCommentInputValue(event.target.value)}
-            />
-          </div>
-        </div>
+        {textAreasWrapper}
 
         <div className={cn['WordForm__ButtonsWrapper']}>
-          {addingMode
-            ? null
-            : (
-              <div className={cn['ButtonWrapper']}>
-                <button
-                  className={cx(
-                    cn['WordForm__Button'],
-                    cn['WordForm__Button--WithTooltip'],
-                    cn['WordForm__Button--FixedHeight']
-                  )}
-                  type='button'
-                  onClick={() => updateWord(
-                    new Word(id || 0, wordInputValue, commentInputValue)
-                  )}
-                  data-tooltip='Save changes'
-                >
-                  <span role='img' aria-label='Save button'>💾</span>
-                </button>
-              </div>
-            )}
-
-          {addingMode
-            ? null
-            : (
-              <div className={cn['ButtonWrapper']}>
-                <button
-                  className={cx(
-                    cn['WordForm__Button'],
-                    cn['WordForm__Button--WithTooltip'],
-                    cn['WordForm__Button--FixedHeight']
-                  )}
-                  type='button'
-                  onClick={() => deleteWord(
-                    new Word(id || 0),
-                    parentOnDBUpdateCallback || (() => { })
-                  )}
-                  data-tooltip='Remove the word'
-                >
-                  <span role='img' aria-label='Remove button'>❌</span>
-                </button>
-              </div>
-            )}
-
-          {addingMode
-            ? (
-              <div className={cn['ButtonWrapper']}>
-                <button
-                  className={cx(
-                    cn['WordForm__Button'],
-                    cn['WordForm__Button--FixedWidth'],
-                    cn['WordForm__Button--FixedHeight']
-                  )}
-                  type='button'
-                  onClick={() => createWord(
-                    new Word(
-                      0,
-                      wordInputValue,
-                      commentInputValue,
-                      toShortDateString(store.getState().calendar.date)
-                    ),
-                    parentOnDBUpdateCallback || (() => { })
-                  )}
-                >
-                  Add
-                </button>
-              </div>
-            )
-            : null}
+          {updateButtonWrapper}
+          {deleteButtonWrapper}
+          {createButtonWrapper}
         </div>
 
       </div>
