@@ -130,6 +130,10 @@ function WordEntry({
             cn['WordForm__Button--FixedWidth'],
             cn['WordForm__Button--FixedHeight']
           )}
+          disabled={
+            wordInputValue.replace(/\s/g, '') === ''
+            || commentInputValue.replace(/\s/g, '') === ''
+          }
           type='button'
           onClick={() => {
             createWord(
