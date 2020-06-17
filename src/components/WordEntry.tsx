@@ -57,7 +57,9 @@ function WordEntry({
                     cn['WordForm__Button--FixedHeight']
                   )}
                   type='button'
-                  onClick={() => updateWord(new Word(id || 0, word, comment))}
+                  onClick={() => updateWord(
+                    new Word(id || 0, wordInputValue, commentInputValue)
+                  )}
                   data-tooltip='Save changes'
                 >
                   <span role='img' aria-label='Save button'>💾</span>
