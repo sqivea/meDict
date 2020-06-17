@@ -25,8 +25,13 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true
     },
+    backgroundColor: '#222222'
   });
-  mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
+  mainWindow.loadURL(
+    isDev
+      ? 'http://localhost:3000'
+      : `file://${path.join(__dirname, '../build/index.html')}`
+  );
   mainWindow.on('closed', () => mainWindow = null);
   mainWindow.setMenu(null);
 }

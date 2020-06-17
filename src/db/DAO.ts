@@ -1,13 +1,9 @@
-import path from 'path';
-
 import { Word } from './DBObjects';
 
 const Database = window.require('better-sqlite3');
 const existsSync = window.require('fs').existsSync;
-const app = window.require('electron').remote;
 
 const defaultDBPath = process.env.REACT_APP_DB_PATH || '';
-const modalWindowPath = process.env.REACT_APP_MODAL_WINDOW_PATH || '';
 
 export default class DAO {
   private static instance: DAO | null = null;
@@ -52,25 +48,6 @@ export default class DAO {
         comment = '${payload.comment}'
        WHERE id = ${payload.id}`
     );
-
-    /*
-    SRP breach. Reason: Electron reloads the window
-    on the database update if it influences components.
-    Got to create something other than a white reload screen.
-    */
-    DAO.showLoadingScreen();
-  }
-
-  private static showLoadingScreen(): void {
-    const loadingScreen = new app.BrowserWindow({
-      parent: app.getCurrentWindow(),
-      modal: true,
-    });
-    const url = `file://${path.join(__dirname, modalWindowPath)}`;
-    loadingScreen.loadURL(url);
-    setTimeout(() => {
-      loadingScreen.close();
-    }, 1000);
   }
 
   public delete(word: Word): void {
