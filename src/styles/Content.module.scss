@@ -14,6 +14,8 @@
 .ListWrapper {
   grid-area: listWrapper;
   padding: $space-min-default 0;
+  // To prevent black background when the list is being expanded.
+  background: $color-background-lighter;
 }
 
 .AdderWrapper {

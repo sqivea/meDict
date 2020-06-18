@@ -99,8 +99,7 @@ function WordEntry({
         <button
           className={cx(
             cn['WordForm__Button'],
-            cn['WordForm__Button--FixedWidthHalf'],
-            cn['WordForm__Button--WithTooltip']
+            cn['WordForm__Button--FixedWidthHalf']
           )}
           type='button'
           onClick={() => updateWord(
@@ -120,8 +119,7 @@ function WordEntry({
         <button
           className={cx(
             cn['WordForm__Button'],
-            cn['WordForm__Button--FixedWidthHalf'],
-            cn['WordForm__Button--WithTooltip']
+            cn['WordForm__Button--FixedWidthHalf']
           )}
           type='button'
           onClick={() => deleteWord(
