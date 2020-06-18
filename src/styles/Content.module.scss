@@ -18,6 +18,10 @@
   background: $color-background-lighter;
 }
 
+.WordsList:last-child:not(.WordsList--WithoutLastChildMargin) {
+  margin-bottom: $size-words-list-last-child-margin;
+}
+
 .AdderWrapper {
   grid-area: adderWrapper;
   padding: $space-min-default 0;

@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import WordEntry from 'components/WordEntry';
 
+import cx from 'classnames';
 import cn from 'styles/Content.module.scss';
 
 import DAO from 'db/DAO';
@@ -47,7 +48,11 @@ const Content = ({ pickedDate }: ContentProps) => {
         </div>
       </div>
       <div className={cn['AdderWrapper']}>
-        <div className={cn['WordsList']}>
+        <div className={cx(
+          cn['WordsList'],
+          cn['WordsList--WithoutLastChildMargin']
+        )}
+        >
           <WordEntry
             key=''
             word=''
