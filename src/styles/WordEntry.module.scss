@@ -14,17 +14,19 @@
 .WordForm__ButtonsWrapper {
   grid-area: buttonsWrapper;
   display: flex;
+  height: $size-text-area-height;
 }
 
 .TextAreaWrapper {
   padding-right: $space-min-absolute;
+  height: $size-text-area-height;
 }
 
 .WordForm__TextArea {
+  height: 100%;
+  padding: 0;
   resize: none;
   text-align: center;
-  height: $size-text-area-height;
-  font-size: calc(#{$size-text-area-height} - 1);
   font-family: Arial, Helvetica, sans-serif;
   background-color: $color-text-area;
   color: $color-text-area-text;
@@ -33,11 +35,12 @@
 }
 
 .WordForm__Button {
-  height: $size-text-area-height;
+  height: 100%;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   background-color: $color-text-area;
   color: $color-text-area-text;
-  border: solid $color-text-area;
+  border: none;
   outline: none;
 
   &:hover {
@@ -75,6 +78,6 @@
   width: $size-fixed-width-button;
 }
 
-.WordForm__Button--FixedHeight {
-  height: $size-fixed-height-button;
+.WordForm__Button--FixedWidthHalf {
+  width: calc(#{$size-fixed-width-button} / 2);
 }

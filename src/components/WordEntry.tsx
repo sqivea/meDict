@@ -62,14 +62,16 @@ function WordEntry({
   const textAreasWrapper = (
     <div className={cn['WordForm__TextAreasWrapper']}>
       <div className={cn['TextAreaWrapper']}>
-        <textarea
+        <input
+          type='text'
           className={cn['WordForm__TextArea']}
           value={wordInputValue}
           onChange={(event) => setWordInputValue(event.target.value)}
         />
       </div>
       <div className={cn['TextAreaWrapper']}>
-        <textarea
+        <input
+          type='text'
           className={cn['WordForm__TextArea']}
           value={commentInputValue}
           onChange={(event) => setCommentInputValue(event.target.value)}
@@ -85,8 +87,8 @@ function WordEntry({
         <button
           className={cx(
             cn['WordForm__Button'],
-            cn['WordForm__Button--WithTooltip'],
-            cn['WordForm__Button--FixedHeight']
+            cn['WordForm__Button--FixedWidthHalf'],
+            cn['WordForm__Button--WithTooltip']
           )}
           type='button'
           onClick={() => updateWord(
@@ -106,8 +108,8 @@ function WordEntry({
         <button
           className={cx(
             cn['WordForm__Button'],
-            cn['WordForm__Button--WithTooltip'],
-            cn['WordForm__Button--FixedHeight']
+            cn['WordForm__Button--FixedWidthHalf'],
+            cn['WordForm__Button--WithTooltip']
           )}
           type='button'
           onClick={() => deleteWord(
@@ -128,7 +130,6 @@ function WordEntry({
           className={cx(
             cn['WordForm__Button'],
             cn['WordForm__Button--FixedWidth'],
-            cn['WordForm__Button--FixedHeight'],
             cn['WordForm__Button--CanBeDisabled']
           )}
           disabled={
