@@ -9,6 +9,7 @@ import store from 'store';
 
 import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
+import 'styles/overrides/Scrollbar.scss';
 
 /**
  * A function to call DAO's create method.
