@@ -6,6 +6,7 @@
     'content  content  content  calendar calendar' 6fr / 3fr 2fr;
   min-height: 100vh;
   max-height: 100vh;
+  overflow: hidden;
 }
 
 .App__TitleBar {
@@ -18,6 +19,7 @@
 
 .App__Content {
   grid-area: content;
+  overflow-y: scroll;
 }
 
 .App__CalendarWrapper {
