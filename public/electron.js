@@ -27,12 +27,13 @@ function createWindow() {
       nodeIntegration: true
     }
   });
-  mainWindow.loadURL(
-    isDev
-      ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, '../build/index.html')}`
-  );
-  mainWindow.on('closed', () => mainWindow = null);
+  const startUrl = process.env.ELECTRON_START_URL || url.format({
+    pathname: path.join(__dirname, '../index.html'),
+    protocol: 'file:',
+    slashes: true,
+  });
+  mainWindow.loadURL(startUrl);
+  mainWindow.on('closed', () => { mainWindow = null; });
   mainWindow.setMenu(null);
 }
 

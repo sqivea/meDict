@@ -29,10 +29,10 @@
     "wait-on": "^5.0.1"
   },
   "scripts": {
-    "start": "env-cmd -e dev react-scripts start",
+    "start": "export BROWSER=none && env-cmd -e dev react-scripts start",
+    "start-electron": "export ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "test": "export BROWSER=none && env-cmd -e qa react-scripts test",
     "build": "env-cmd -e prod react-scripts build",
-    "test": "env-cmd -e qa react-scripts test",
-    "electron-dev": "concurrently \"BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps"
   },
   "main": "public/electron.js",
