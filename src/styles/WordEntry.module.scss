@@ -33,6 +33,17 @@
   color: $color-text-area-text;
   border: none;
   border-radius: $size-text-are-border-radius;
+
+  &:hover {
+    background-color: $color-text-area-lighter;
+    border-color: $color-text-area-lighter;
+  }
+
+  &:active {
+    background-color: $color-text-area-darker;
+    border-color: $color-text-area-darker;
+    outline: none;
+  }
 }
 
 .WordForm__TextArea--FixedWidth {
