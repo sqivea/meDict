@@ -19,7 +19,8 @@
 
 .App__Content {
   grid-area: content;
-  overflow-y: scroll;
+  overflow-y: auto;
+  direction: rtl;
 }
 
 .App__CalendarWrapper {
