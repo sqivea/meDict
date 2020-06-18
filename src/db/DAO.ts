@@ -3,7 +3,7 @@ import { Word } from './DBObjects';
 const Database = window.require('better-sqlite3');
 const existsSync = window.require('fs').existsSync;
 
-const defaultDBPath = process.env.REACT_APP_DB_PATH || '';
+const defaultDBPath = './words.db';
 
 export default class DAO {
   private static instance: DAO | null = null;
