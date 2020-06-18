@@ -55,6 +55,7 @@ function WordEntry({
   word,
   comment,
   addingMode,
+  expandingView,
   parentOnDBUpdateCallback
 }: InferProps<typeof WordEntry.propTypes>) {
   const [wordInputValue, setWordInputValue] = useState(word);
@@ -67,7 +68,9 @@ function WordEntry({
           type='text'
           className={cx(
             cn['WordForm__TextArea'],
-            cn['WordForm__TextArea--FixedWidth']
+            expandingView
+              ? cn['WordForm__TextArea--FixedWidthExpanded']
+              : cn['WordForm__TextArea--FixedWidth']
           )}
           value={wordInputValue}
           onChange={(event) => setWordInputValue(event.target.value)}
@@ -78,7 +81,9 @@ function WordEntry({
           type='text'
           className={cx(
             cn['WordForm__TextArea'],
-            cn['WordForm__TextArea--FixedWidth']
+            expandingView
+              ? cn['WordForm__TextArea--FixedWidthExpanded']
+              : cn['WordForm__TextArea--FixedWidth']
           )}
           value={commentInputValue}
           onChange={(event) => setCommentInputValue(event.target.value)}
@@ -186,6 +191,7 @@ WordEntry.propTypes = {
   word: PropTypes.string.isRequired,
   comment: PropTypes.string.isRequired,
   addingMode: PropTypes.bool.isRequired,
+  expandingView: PropTypes.bool.isRequired,
   parentOnDBUpdateCallback: PropTypes.func
 };
 

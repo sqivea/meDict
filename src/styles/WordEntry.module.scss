@@ -39,6 +39,10 @@
   width: $size-fixed-width-text-area;
 }
 
+.WordForm__TextArea--FixedWidthExpanded {
+  width: $size-fixed-width-text-area-expanded;
+}
+
 .WordForm__Button {
   height: 100%;
   padding: 0;

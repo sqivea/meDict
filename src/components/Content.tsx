@@ -22,6 +22,8 @@ const mapStateToProps = (state: ICombinedStore) => ({
   pickedDate: state.calendar.date
 });
 
+const overflowEnabledFrom = 11;
+
 const Content = ({ pickedDate }: ContentProps) => {
   const words = DAO.getInstance().read(toShortDateString(pickedDate));
   const [, updateState] = useState();
@@ -38,6 +40,7 @@ const Content = ({ pickedDate }: ContentProps) => {
               word={word.value || ''}
               comment={word.comment || ''}
               addingMode={false}
+              expandingView={words.length < overflowEnabledFrom}
               parentOnDBUpdateCallback={forceUpdate}
             />
           ))}
@@ -50,6 +53,7 @@ const Content = ({ pickedDate }: ContentProps) => {
             word=''
             comment=''
             addingMode
+            expandingView={words.length < overflowEnabledFrom}
             parentOnDBUpdateCallback={forceUpdate}
           />
         </div>
