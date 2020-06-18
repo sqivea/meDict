@@ -2,3 +2,12 @@
   height: 100%;
   background-color: #222222;
 }
+
+.ActionsLabelsWrapper {
+  height: 100%;
+  background-color: #222222;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}

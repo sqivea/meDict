@@ -50,6 +50,15 @@ const deleteWord = (
   callback();
 };
 
+const showActionSaveLabel = (): void => {
+  const saveActionLabel = document.getElementById('Globals__ActionSave');
+  /* eslint-disable-next-line no-unused-expressions */
+  saveActionLabel?.classList.replace(
+    'Globals__ActionLabel',
+    'Globals__ActionLabel--Visible'
+  );
+};
+
 function WordEntry({
   id,
   word,
@@ -105,6 +114,7 @@ function WordEntry({
           onClick={() => updateWord(
             new Word(id || 0, wordInputValue, commentInputValue)
           )}
+          onMouseEnter={showActionSaveLabel}
           data-tooltip='Save changes'
         >
           <span role='img' aria-label='Save button'>💾</span>
@@ -161,6 +171,7 @@ function WordEntry({
             setWordInputValue('');
             setCommentInputValue('');
           }}
+          onMouseEnter={() => { }}
         >
           Add
         </button>
