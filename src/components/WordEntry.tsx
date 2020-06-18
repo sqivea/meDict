@@ -50,17 +50,10 @@ const deleteWord = (
   callback();
 };
 
-const showActionSaveLabel = (): void => {
+const setActionLabel = (label: string = ''): void => {
   const actionLabel = document.getElementById('ActionLabelHint');
   if (actionLabel) {
-    actionLabel.innerHTML = 'Action: Save changes';
-  }
-};
-
-const showActionRemoveLabel = (): void => {
-  const actionLabel = document.getElementById('ActionLabelHint');
-  if (actionLabel) {
-    actionLabel.innerHTML = 'Action: Remove the word';
+    actionLabel.innerHTML = label;
   }
 };
 
@@ -119,7 +112,7 @@ function WordEntry({
           onClick={() => updateWord(
             new Word(id || 0, wordInputValue, commentInputValue)
           )}
-          onMouseEnter={showActionSaveLabel}
+          onMouseEnter={() => { setActionLabel('Action: Save changes'); }}
           data-tooltip='Save changes'
         >
           <span role='img' aria-label='Save button'>💾</span>
@@ -141,7 +134,7 @@ function WordEntry({
             new Word(id || 0),
             parentOnDBUpdateCallback || (() => { })
           )}
-          onMouseEnter={showActionRemoveLabel}
+          onMouseEnter={() => { setActionLabel('Action: Remove the word'); }}
           data-tooltip='Remove the word'
         >
           <span role='img' aria-label='Remove button'>❌</span>
