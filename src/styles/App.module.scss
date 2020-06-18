@@ -1,9 +1,10 @@
 .App {
   display: grid;
   grid-template:
-    'titleBar titleBar titleBar titleBar titleBar' .3fr
-    'topPanel topPanel topPanel topPanel topPanel' 1fr
-    'content  content  content  calendar calendar' 6fr / 3fr 2fr;
+    'titleBar  titleBar  titleBar  titleBar  titleBar'  .3fr
+    'topPanel  topPanel  topPanel  topPanel  topPanel'   1fr
+    'content   content   content   calendar  calendar'   6fr
+    'statusBar statusBar statusBar statusBar statusBar' .3fr / 3fr 2fr;
   min-height: 100vh;
   max-height: 100vh;
   overflow: hidden;
@@ -25,4 +26,8 @@
 
 .App__CalendarWrapper {
   grid-area: calendar;
+}
+
+.App__StatusBar {
+  grid-area: statusBar;
 }

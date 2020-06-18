@@ -1,7 +1,8 @@
 import React from 'react';
+import Content from 'components/Content';
 import TitleBar from 'components/TitleBar';
 import TopPanel from 'components/TopPanel';
-import Content from 'components/Content';
+import StatusBar from 'components/StatusBar';
 import CalendarWrapper from 'components/CalendarWrapper';
 
 import { Provider } from 'react-redux';
@@ -26,6 +27,9 @@ const App = () => (
       <aside className={cn['App__CalendarWrapper']}>
         <CalendarWrapper />
       </aside>
+      <footer className={cn['App__StatusBar']}>
+        <StatusBar />
+      </footer>
     </div>
   </Provider>
 );
