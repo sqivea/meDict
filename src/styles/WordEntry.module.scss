@@ -35,6 +35,10 @@
   border-radius: $size-text-are-border-radius;
 }
 
+.WordForm__TextArea--FixedWidth {
+  width: $size-fixed-width-text-area;
+}
+
 .WordForm__Button {
   height: 100%;
   padding: 0;

@@ -64,7 +64,10 @@ function WordEntry({
       <div className={cn['TextAreaWrapper']}>
         <input
           type='text'
-          className={cn['WordForm__TextArea']}
+          className={cx(
+            cn['WordForm__TextArea'],
+            cn['WordForm__TextArea--FixedWidth']
+          )}
           value={wordInputValue}
           onChange={(event) => setWordInputValue(event.target.value)}
         />
@@ -72,7 +75,10 @@ function WordEntry({
       <div className={cn['TextAreaWrapper']}>
         <input
           type='text'
-          className={cn['WordForm__TextArea']}
+          className={cx(
+            cn['WordForm__TextArea'],
+            cn['WordForm__TextArea--FixedWidth']
+          )}
           value={commentInputValue}
           onChange={(event) => setCommentInputValue(event.target.value)}
         />
