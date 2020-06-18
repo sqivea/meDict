@@ -11,8 +11,6 @@ import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
 import 'styles/overrides/Scrollbar.scss';
 
-const spoilerDependentClassName = cn[''];
-
 /**
  * A function to call DAO's create method.
  * @param word the payload
@@ -69,7 +67,12 @@ function WordEntry({
 }: InferProps<typeof WordEntry.propTypes>) {
   let unspoilered = false;
   const [wordInputValue, setWordInputValue] = useState(word);
-  const [commentInputValue, setCommentInputValue] = useState('Click to show');
+  const [commentInputValue, setCommentInputValue] = useState(
+    !addingMode ? 'Click to show' : ''
+  );
+  const [commentFieldClass, setCommentFieldClass] = useState(
+    cn['WordForm__TextArea--RealValueHidden']
+  );
 
   const textAreasWrapper = (
     <div className={cn['WordForm__TextAreasWrapper']}>
@@ -91,6 +94,7 @@ function WordEntry({
           type='text'
           className={cx(
             cn['WordForm__TextArea'],
+            !addingMode ? commentFieldClass : null,
             expandingView
               ? cn['WordForm__TextArea--FixedWidthExpanded']
               : cn['WordForm__TextArea--FixedWidth']
@@ -101,6 +105,9 @@ function WordEntry({
             if (!unspoilered) {
               setCommentInputValue(comment);
               unspoilered = true;
+              setCommentFieldClass(cn[
+                'WordForm__TextArea--RealValueShown '
+              ]);
             }
           }}
         />
