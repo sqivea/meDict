@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import store from 'store';
 
 import cn from 'styles/App.module.scss';
-import 'styles/Globals.scss';
 import 'styles/vendor/normalize.scss';
 
 

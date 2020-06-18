@@ -51,12 +51,17 @@ const deleteWord = (
 };
 
 const showActionSaveLabel = (): void => {
-  const saveActionLabel = document.getElementById('Globals__ActionSave');
-  /* eslint-disable-next-line no-unused-expressions */
-  saveActionLabel?.classList.replace(
-    'Globals__ActionLabel',
-    'Globals__ActionLabel--Visible'
-  );
+  const actionLabel = document.getElementById('ActionLabelHint');
+  if (actionLabel) {
+    actionLabel.innerHTML = 'Action: Save changes';
+  }
+};
+
+const showActionRemoveLabel = (): void => {
+  const actionLabel = document.getElementById('ActionLabelHint');
+  if (actionLabel) {
+    actionLabel.innerHTML = 'Action: Remove the word';
+  }
 };
 
 function WordEntry({
@@ -136,6 +141,7 @@ function WordEntry({
             new Word(id || 0),
             parentOnDBUpdateCallback || (() => { })
           )}
+          onMouseEnter={showActionRemoveLabel}
           data-tooltip='Remove the word'
         >
           <span role='img' aria-label='Remove button'>❌</span>
