@@ -113,6 +113,7 @@ function WordEntry({
             new Word(id || 0, wordInputValue, commentInputValue)
           )}
           onMouseEnter={() => { setActionLabel('Action: Save changes'); }}
+          onMouseLeave={() => { setActionLabel(); }}
           data-tooltip='Save changes'
         >
           <span role='img' aria-label='Save button'>💾</span>
@@ -135,6 +136,7 @@ function WordEntry({
             parentOnDBUpdateCallback || (() => { })
           )}
           onMouseEnter={() => { setActionLabel('Action: Remove the word'); }}
+          onMouseLeave={() => { setActionLabel(); }}
           data-tooltip='Remove the word'
         >
           <span role='img' aria-label='Remove button'>❌</span>
