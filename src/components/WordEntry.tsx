@@ -65,8 +65,9 @@ function WordEntry({
   expandingView,
   parentOnDBUpdateCallback
 }: InferProps<typeof WordEntry.propTypes>) {
+  let unspoilered = false;
   const [wordInputValue, setWordInputValue] = useState(word);
-  const [commentInputValue, setCommentInputValue] = useState(comment);
+  const [commentInputValue, setCommentInputValue] = useState('Click to show');
 
   const textAreasWrapper = (
     <div className={cn['WordForm__TextAreasWrapper']}>
@@ -94,6 +95,12 @@ function WordEntry({
           )}
           value={commentInputValue}
           onChange={(event) => setCommentInputValue(event.target.value)}
+          onClick={() => {
+            if (!unspoilered) {
+              setCommentInputValue(comment);
+              unspoilered = true;
+            }
+          }}
         />
       </div>
     </div>
