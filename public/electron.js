@@ -19,13 +19,13 @@ function createWindow() {
     minHeight: defaultHeight,
     maxHeight: defaultHeight,
     frame: false,
+    transparent: true,
     fullscreenable: false,
     resizable: false,
     center: true,
     webPreferences: {
       nodeIntegration: true
-    },
-    backgroundColor: '#222222'
+    }
   });
   mainWindow.loadURL(
     isDev
@@ -38,7 +38,9 @@ function createWindow() {
 }
 
 (() => {
-  app.on('ready', createWindow);
+  app.on('ready', () => {
+    setTimeout(createWindow, 300);
+  });
   app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
       app.quit();
@@ -51,4 +53,6 @@ function createWindow() {
   });
   // Allow use of native sqlite3 modules.
   app.allowRendererProcessReuse = false;
+  app.commandLine.appendSwitch('enable-transparent-visuals');
+  app.commandLine.appendSwitch('disable-gpu');
 })();
