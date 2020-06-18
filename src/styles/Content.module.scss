@@ -22,4 +22,6 @@
   grid-area: adderWrapper;
   padding: $space-min-default 0;
   background-color: $color-background-darker;
+  position: fixed;
+  bottom: $size-status-bar-fixed-height;
 }
