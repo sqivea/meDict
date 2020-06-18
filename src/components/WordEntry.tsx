@@ -11,6 +11,8 @@ import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
 import 'styles/overrides/Scrollbar.scss';
 
+const spoilerDependentClassName = cn[''];
+
 /**
  * A function to call DAO's create method.
  * @param word the payload

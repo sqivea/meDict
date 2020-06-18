@@ -43,6 +43,16 @@
   width: $size-fixed-width-text-area-expanded;
 }
 
+.WordForm__TextArea--RealValueHidden {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.WordForm__TextArea--RealValueShown {
+  font-style: normal;
+  font-weight: normal;
+}
+
 .WordForm__Button {
   height: 100%;
   padding: 0;
