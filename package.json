@@ -41,6 +41,7 @@
     "package-linux": "electron-builder build --linux -c.extraMetadata.main=build/electron/main.js --publish never"
   },
   "build": {
+    "productName": "meDict",
     "files": [
       "build/**/*",
       "node_modules/**/*"
@@ -49,6 +50,12 @@
       "provider": "github",
       "owner": "mavedev",
       "repo": "meDict"
+    },
+    "win": {
+      "target": "nsis",
+      "artifactName": "meDict.setup.${version}.${ext}",
+      "uninstallDisplayName": "meDict",
+      "icon": "build/icon.png"
     }
   },
   "main": "electron/main.js",
