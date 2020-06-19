@@ -102,7 +102,7 @@ function WordEntry({
           value={commentInputValue}
           onChange={(event) => setCommentInputValue(event.target.value)}
           onClick={() => {
-            if (!unspoilered) {
+            if (!addingMode && !unspoilered) {
               setCommentInputValue(comment);
               unspoilered = true;
               setCommentFieldClass(cn[
