@@ -18,7 +18,6 @@
     "better-sqlite3": "^7.1.0",
     "classnames": "^2.2.6",
     "concurrently": "^5.2.0",
-    "electron": "^9.0.3",
     "electron-is-dev": "^1.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -36,7 +35,21 @@
     "build-react": "react-scripts build",
     "build-electron-bash": "mkdir build/src && cp -r electron/. build/electron",
     "build-electron-powershell": "robocopy electron build/electron /S | exit 0",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps",
+    "package-win": "electron-builder build --win -c.extraMetadata.main=build/electron/main.js --publish never",
+    "package-mac": "electron-builder build --mac -c.extraMetadata.main=build/electron/main.js --publish never",
+    "package-linux": "electron-builder build --linux -c.extraMetadata.main=build/electron/main.js --publish never"
+  },
+  "build": {
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "mavedev",
+      "repo": "meDict"
+    }
   },
   "main": "electron/main.js",
   "eslintConfig": {
@@ -58,6 +71,7 @@
     "@types/prop-types": "^15.7.3",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
+    "electron": "^9.0.4",
     "electron-builder": "^22.7.0",
     "env-cmd": "^10.1.0",
     "eslint": "^6.8.0",
