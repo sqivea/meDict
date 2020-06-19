@@ -1,11 +1,26 @@
 import React from 'react';
+
+/* Styles. */
 import cn from 'styles/TitleBar.module.scss';
 
+/*
+  Webpack is not configured to deal with Electron.
+  Need to load electron module dynamically using global
+  window object.
+ */
 const app = window.require('electron').remote;
 
+/**
+ * Custom frame of the window.
+ */
 const TitleBar = () => (
   <div className={cn['TitleBar']}>
     <nav className={cn['TitleBar__Nav']}>
+      {/*
+        Default buttons for closing and minimizing.
+        Maximizing is not present due to unsupportability
+        of frameless Electron windows to be resized.
+        */}
       <div className={cn['TitleBar__Buttons']}>
         <div
           /* To avoid '(...) require a role' warning. */

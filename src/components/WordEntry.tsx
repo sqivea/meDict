@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes, { InferProps } from 'prop-types';
 
+/* Database. */
 import DAO from 'db/DAO';
 import { Word } from 'db/DBObjects';
 import { toShortDateString } from 'misc/dateConverter';
 
+/* Redux. */
 import store from 'store';
 
+/* Styles. */
 import cx from 'classnames';
 import cn from 'styles/WordEntry.module.scss';
 import 'styles/overrides/Scrollbar.scss';
@@ -50,6 +53,10 @@ const deleteWord = (
   callback();
 };
 
+/**
+ * A function to set hint labels at the status bar.
+ * @param label hint
+ */
 const setActionLabel = (label: string = ''): void => {
   const actionLabel = document.getElementById('ActionLabelHint');
   if (actionLabel) {
@@ -57,12 +64,17 @@ const setActionLabel = (label: string = ''): void => {
   }
 };
 
+/**
+ * Text fileds with buttons.
+ * Used to represent a word from the database
+ * or to provide inputs for adding a new word.
+ */
 function WordEntry({
-  id,
-  word,
-  comment,
-  addingMode,
-  expandingView,
+  id, /* ID of the word if the word is provided. */
+  word, /* The word value itself if the word is provided. */
+  comment, /* The word comment if the word is provided. */
+  addingMode /* If the inputs are used to add a new word. */,
+  expandingView /* If the inputs width needs to pe expanded. */,
   parentOnDBUpdateCallback
 }: InferProps<typeof WordEntry.propTypes>) {
   let unspoilered = false;
@@ -74,6 +86,7 @@ function WordEntry({
     cn['WordForm__TextArea--RealValueHidden']
   );
 
+  /* Inputs. */
   const textAreasWrapper = (
     <div className={cn['WordForm__TextAreasWrapper']}>
       <div className={cn['TextAreaWrapper']}>
@@ -115,6 +128,7 @@ function WordEntry({
     </div>
   );
 
+  /* Button area next to the inputs. */
   const updateButtonWrapper = addingMode
     ? null
     : (
@@ -137,6 +151,7 @@ function WordEntry({
       </div>
     );
 
+  /* A button allows deleting word from the database. */
   const deleteButtonWrapper = addingMode
     ? null
     : (
@@ -160,6 +175,7 @@ function WordEntry({
       </div>
     );
 
+  /* A button allows adding word from the database. */
   const createButtonWrapper = addingMode
     ? (
       <div className={cn['ButtonWrapper']}>
@@ -196,6 +212,7 @@ function WordEntry({
     )
     : null;
 
+  /* All the elemets. */
   return (
     <div className={cn['MainWrapper']}>
       <div className={cn['WordForm']}>
@@ -212,6 +229,7 @@ function WordEntry({
   );
 }
 
+/* Props types definition. */
 WordEntry.propTypes = {
   id: PropTypes.number,
   word: PropTypes.string.isRequired,
@@ -221,6 +239,7 @@ WordEntry.propTypes = {
   parentOnDBUpdateCallback: PropTypes.func
 };
 
+/* Default values for the component's props types. */
 WordEntry.defaultProps = {
   id: 0,
   parentOnDBUpdateCallback: null
