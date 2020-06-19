@@ -33,10 +33,12 @@
     "start-react": "env-cmd -f .env react-scripts start",
     "start-electron": "env-cmd -f .env electron .",
     "test": "env-cmd -f .env react-scripts test",
-    "build": "react-scripts build",
+    "build-react": "react-scripts build",
+    "build-electron-bash": "mkdir build/src && cp -r electron/. build/electron",
+    "build-electron-powershell": "robocopy electron build/electron /S | exit 0",
     "postinstall": "electron-builder install-app-deps"
   },
-  "main": "public/electron.js",
+  "main": "electron/main.js",
   "eslintConfig": {
     "extends": "react-app"
   },
