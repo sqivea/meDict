@@ -1,18 +1,38 @@
+/* Database objects. */
 import { Word } from './DBObjects';
 
+/*
+  CRA's Webpack is not configured to deal with Node-only stuff.
+  Need to load those modules dynamically using global
+  window object.
+ */
 const Database = window.require('better-sqlite3');
 const existsSync = window.require('fs').existsSync;
 
+/**
+ * The database default path.
+ */
 const defaultDBPath = './words.db';
 
+/**
+ * The main data access object definition.
+ */
 export default class DAO {
   private static instance: DAO | null = null;
 
-  // True type: BetterSqlite3.Database.
+  /**
+   * SQLite3 database connection object.
+   * Declared as 'any' due to inability to get
+   * real types from dynamic window.require loading.
+   * True type: BetterSqlite3.Database.
+   */
   private connection: any = null;
 
   private constructor() {}
 
+  /**
+   * Singleton implementation.
+   */
   public static getInstance(): DAO {
     if (!DAO.instance) {
       DAO.instance = new DAO();
@@ -20,6 +40,10 @@ export default class DAO {
     return DAO.instance;
   }
 
+  /**
+   * 'Create' operation (from CRUD).
+   * @param word initial word data
+   */
   public create(word: Word): void {
     /* eslint-disable-next-line no-unused-expressions */
     this.connection?.exec(
@@ -31,6 +55,10 @@ export default class DAO {
     );
   }
 
+  /**
+   * 'Read' operation (from CRUD).
+   * @param dateString a date for filtering words
+   */
   public read(dateString: string): Word[] {
     const query = `
       SELECT *
@@ -41,6 +69,10 @@ export default class DAO {
     return DAO.getWordsFromQueryResult(rows);
   }
 
+  /**
+   * 'Update' operation (from CRUD).
+   * @param word the payload
+   */
   public update(payload: Word): void {
     /* eslint-disable-next-line no-unused-expressions */
     this.connection?.exec(
@@ -51,6 +83,10 @@ export default class DAO {
     );
   }
 
+  /**
+   * 'Delete' operation (from CRUD).
+   * @param word what word must be deleted (used to get the id)
+   */
   public delete(word: Word): void {
     /* eslint-disable-next-line no-unused-expressions */
     this.connection?.exec(
@@ -59,6 +95,10 @@ export default class DAO {
     );
   }
 
+  /**
+   * Initial setup of the database.
+   * @param dbPath path to the database file
+   */
   public setupDB(dbPath: string = defaultDBPath): void {
     const dbNotFilled = !DAO.checkIfExists(dbPath);
     this.connection = new Database(dbPath);
@@ -74,10 +114,18 @@ export default class DAO {
     }
   }
 
+  /**
+   * Check if the database file exists.
+   * @param dbPath path to the database file
+   */
   private static checkIfExists(dbPath: string): boolean {
     return existsSync(dbPath);
   }
 
+  /**
+   * Transform the typeless results into a list of Word instances.
+   * @param rows query result
+   */
   private static getWordsFromQueryResult(rows: any[]): Word[] {
     const result: Word[] = [];
     rows.forEach((value) => {

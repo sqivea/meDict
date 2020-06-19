@@ -1,3 +1,6 @@
+/**
+ * Representation of a word (value object).
+ */
 export class Word {
   constructor(
     public id?: number,
