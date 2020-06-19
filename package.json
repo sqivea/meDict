@@ -51,10 +51,14 @@
       "owner": "mavedev",
       "repo": "meDict"
     },
+    "nsis": {
+      "perMachine": true,
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
     "win": {
       "target": "nsis",
       "artifactName": "meDict.setup.${version}.${ext}",
-      "uninstallDisplayName": "meDict",
       "icon": "build/icon.png"
     }
   },
