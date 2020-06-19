@@ -77,7 +77,7 @@ function WordEntry({
   expandingView /* If the inputs width needs to pe expanded. */,
   parentOnDBUpdateCallback
 }: InferProps<typeof WordEntry.propTypes>) {
-  let unspoilered = false;
+  const [unspoilered, setUnspoilered] = useState(false);
   const [wordInputValue, setWordInputValue] = useState(word);
   const [commentInputValue, setCommentInputValue] = useState(
     !addingMode ? 'Click to show' : ''
@@ -117,7 +117,7 @@ function WordEntry({
           onClick={() => {
             if (!addingMode && !unspoilered) {
               setCommentInputValue(comment);
-              unspoilered = true;
+              setUnspoilered(true);
               setCommentFieldClass(cn[
                 'WordForm__TextArea--RealValueShown '
               ]);
@@ -139,9 +139,13 @@ function WordEntry({
             cn['WordForm__Button--FixedWidthHalf']
           )}
           type='button'
-          onClick={() => updateWord(
-            new Word(id || 0, wordInputValue, commentInputValue)
-          )}
+          onClick={() => {
+            updateWord(new Word(
+              id || 0,
+              wordInputValue,
+              unspoilered ? commentInputValue : comment
+            ));
+          }}
           onMouseEnter={() => { setActionLabel('Action: Save changes'); }}
           onMouseLeave={() => { setActionLabel(); }}
           data-tooltip='Save changes'
